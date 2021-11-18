@@ -13,7 +13,7 @@ class RatingSerializer(serializers.ModelSerializer):
 
 
 class PhotoSerializer(serializers.ModelSerializer):
-    ratings = RatingSerializer(many=True, read_only=True)
+    ratings = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     avg_rating = serializers.SerializerMethodField()
 
     class Meta:
@@ -25,7 +25,7 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 
 class UserIpSerializer(serializers.ModelSerializer):
-    user_ratings = RatingSerializer(many=True, read_only=True)
+    user_ratings = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = UserIp

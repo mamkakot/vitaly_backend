@@ -11,6 +11,7 @@ class RatingViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(photo=Photo)
+        serializer.save(user_ip=UserIp)
 
 
 class PhotoViewSet(viewsets.ModelViewSet):
