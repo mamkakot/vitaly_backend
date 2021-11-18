@@ -4,9 +4,6 @@ from django.db.models import Avg
 
 
 class RatingSerializer(serializers.ModelSerializer):
-    photo = serializers.ReadOnlyField(source='photo.id')
-    user_ip = serializers.ReadOnlyField(source='user_ip.id')
-
     class Meta:
         model = Rating
         fields = '__all__'

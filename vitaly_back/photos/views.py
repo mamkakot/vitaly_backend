@@ -9,9 +9,6 @@ class RatingViewSet(viewsets.ModelViewSet):
     queryset = Rating.objects.all()
     serializer_class = RatingSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(photo=Photo)
-
 
 class PhotoViewSet(viewsets.ModelViewSet):
     queryset = Photo.objects.all()
