@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from rest_framework import viewsets
 from .models import Photo, Rating, UserIp
 from .serializers import PhotoSerializer, RatingSerializer, UserIpSerializer
@@ -16,5 +14,7 @@ class PhotoViewSet(viewsets.ModelViewSet):
 
 
 class UserIpViewSet(viewsets.ModelViewSet):
+    lookup_field = 'ip'
+    lookup_value_regex = '[0-9.]+'
     queryset = UserIp.objects.all()
     serializer_class = UserIpSerializer

@@ -18,8 +18,8 @@ class UserIp(models.Model):
 
 
 class Rating(models.Model):
-    photo = models.ForeignKey(Photo, related_name='ratings', on_delete=models.CASCADE, unique=True, default=1)
-    user_ip = models.ForeignKey(UserIp, related_name='user_ratings', on_delete=models.CASCADE, unique=True, default=1)
+    photo = models.ForeignKey(Photo, related_name='ratings', on_delete=models.CASCADE)
+    user_ip = models.ForeignKey(UserIp, related_name='user_ratings', on_delete=models.CASCADE)
     value = models.IntegerField(default=0)
 
     def __str__(self):
